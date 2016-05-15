@@ -64,8 +64,8 @@ RUN chown -R asterisk:asterisk /var/*/asterisk && \
 WORKDIR /
 RUN exec rm -rf /usr/src/asterisk
 
-RUN COPY conf/ /etc/asterisk/
-    COPY asterisk-docker-entrypoint.sh /
+COPY conf/ /etc/asterisk/
+COPY asterisk-docker-entrypoint.sh /
 
 CMD ["/usr/sbin/asterisk", "-f"]
 ENTRYPOINT ["/asterisk-docker-entrypoint.sh"]
